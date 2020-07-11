@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+   <bean id="carta" class="com.service.Car" scope="singleton">
+   	  <property name="model" value="APU-102"/>
+   	  <property name="vendor" value="BMW"/>
+   	  <property name="color" value="white"/>
+   	  <property name="price" value="9091"/>
+   </bean>
+   
+   <bean id="employee" class="com.service.Employee" scope="singleton">
+   	  <property name="eid" value="E40171780"/>
+   	  <property name="name" value="Mr. Jhon!"/>
+   </bean>    
+   
+    <!-- Dependency Injection -->
+    <bean id="carFactoryService" class="com.service.CarFactoryService" scope="singleton">
+   	  <property name="name" value="PockerFactory"/>
+   	  <property name="address" value="CA100, Fremont , US"/>
+   	  <property name="car" ref="carta"/>
+   	   <property name="employee" ref="employee"/>
+   </bean>     
+        
+        
+ </beans>       
+        
